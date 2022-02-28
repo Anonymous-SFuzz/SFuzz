@@ -1,5 +1,5 @@
 
-Now, we extend the function **find_dst_space()**. It aims to get a globally set value as an index referencing variables in the current stack.
+Now, we extend the function **find_dst_space()** that aims to get a globally set value as an index referencing variables in the current stack.
 
 ```
 void devDiscoverHandle(int sockfd){
