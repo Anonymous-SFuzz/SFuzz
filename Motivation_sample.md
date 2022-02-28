@@ -32,16 +32,16 @@ int msg_handler(packet *data){
 int parse_advertisement(uint8 *payload , int payloadLen) {
     char* dst;
     char* var_addr;
-    char buffer[65];
-    int index;
-    var_addr = DAT_404d33a8;
-    msg_element_header *element_header;
-    element_header = parse_msg_element(payload , payloadLen);
-    if (element_header) {
-        index = (int)*(var_addr+4)); // find_dst_space()
-        dst = buffer+index;
-        if (copy_msg_element((char *)element ->data , dst,
-            element_header->len)) == 0) //Stack Overflow
+    char buffer[65];                                                                                          
+    int index;                                                                                                 code changed
+    var_addr = DAT_404d33a8;                                                                                       ||
+    msg_element_header *element_header;                                                                            ||
+    element_header = parse_msg_element(payload , payloadLen);                                                      ||
+    if (element_header) {                                                                                          || 
+        index = (int)*(var_addr+4)); // find_dst_space()  <========================================================||
+        dst = buffer+index;                                                                                        || 
+        if (copy_msg_element((char *)element ->data , dst,                                                         ||  
+            element_header->len)) == 0) //Stack Overflow  <========================================================||
         return SUCCESS;
     }
     return ERROR;
