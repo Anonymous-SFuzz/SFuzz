@@ -1,5 +1,5 @@
 
-Now, we extend the function **find_dst_space()** that aims to get a globally set value as an index referencing variables in the current stack.
+Now, we unwind the function **find_dst_space()** that aims to get a globally set value as an index referencing variables in the current stack.
 
 ```
 void devDiscoverHandle(int sockfd){
@@ -30,18 +30,18 @@ int msg_handler(packet *data){
     return ret;
 }
 int parse_advertisement(uint8 *payload , int payloadLen) {
-    char* dst;
-    char* var_addr;
-    char buffer[65];                                                                                   Extend here   
-    int index;                                                                                               |
+    char* dst;                                                                                           Unwind here
+    char* var_addr;                                                                                          |
+    char buffer[65]; <---------------------------------------------------------------------------------------|          
+    int index; <---------------------------------------------------------------------------------------------|
     var_addr = DAT_404d33a8;<--------------------------------------------------------------------------------|
     msg_element_header *element_header;                                                                      |
     element_header = parse_msg_element(payload , payloadLen);                                                |
     if (element_header) {                                                                                    | 
         index = (int)*(var_addr+4)); // find_dst_space()  <--------------------------------------------------|
-        dst = buffer+index;                                                                                  | 
-        if (copy_msg_element((char *)element ->data , dst,                                                   |  
-            element_header->len)) == 0) //Stack Overflow  <--------------------------------------------------|
+        dst = buffer+index; <--------------------------------------------------------------------------------| 
+        if (copy_msg_element((char *)element ->data , dst, <-------------------------------------------------|  
+            element_header->len)) == 0) //Stack Overflow !!!
         return SUCCESS;
     }
     return ERROR;
