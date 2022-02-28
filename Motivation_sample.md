@@ -1,5 +1,5 @@
 
-**find_dst_space()** To get global value to get an index.And add index to stack,finally data will copy into this stack.
+**find_dst_space()** It aims to get a globally set value as an index referencing variables in the current stack.
 
 ```
 void devDiscoverHandle(int sockfd){
