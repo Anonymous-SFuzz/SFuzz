@@ -30,7 +30,7 @@ int msg_handler(packet *data){
     return ret;
 }
 int parse_advertisement(uint8 *payload , int payloadLen) {
-    char* dst;                                                                                Unwind find_dst_space() here
+    char* dst;                                                                         Unwind find_dst_space() here
     char* var_addr;                                                                                          |
     char buffer[64]; <---------------------------------------------------------------------------------------|          
     int index; <---------------------------------------------------------------------------------------------|
