@@ -30,15 +30,17 @@ int msg_handler(packet *data){
     return ret;
 }
 int parse_advertisement(uint8 *payload , int payloadLen) {
-    char* dst;                                                                                           Unwind here
+    char* dst;                                                                                           Unwind find_dst_space() here
     char* var_addr;                                                                                          |
-    char buffer[65]; <---------------------------------------------------------------------------------------|          
+    char buffer[64]; <---------------------------------------------------------------------------------------|          
     int index; <---------------------------------------------------------------------------------------------|
     var_addr = DAT_404d33a8;<--------------------------------------------------------------------------------|
+    msg_element *element;                                                                                    |
     msg_element_header *element_header;                                                                      |
-    element_header = parse_msg_element(payload , payloadLen);                                                |
+    element = parse_msg_element(payload, payloadLen);                                                        |
+    element_header = element->header;                                                                        |
     if (element_header) {                                                                                    | 
-        index = (int)*(var_addr+4)); // find_dst_space()  <--------------------------------------------------|
+        index = (int)*(var_addr+4)); //   <------------------------------------------------------------------|
         dst = buffer+index; <--------------------------------------------------------------------------------| 
         if (copy_msg_element((char *)element ->data , dst, <-------------------------------------------------|  
             element_header->len)) == 0) //Stack Overflow !!!
