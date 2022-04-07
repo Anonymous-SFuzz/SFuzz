@@ -1,6 +1,3 @@
-Vendor: TP-Link
-Model: WDR7660
-
 ## Input Source
 * Packt_WebGetsVar
 * jsonObjectGetString
